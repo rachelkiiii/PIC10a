@@ -1,5 +1,5 @@
 /*
-      PIC 10A Homework 3, backwards.cpp
+      PIC 10A Homework 3, primes.cpp
       Author: Rachel Ki
       UID: 005590842
       Discussion Section: 2C
@@ -7,28 +7,40 @@
 */
 
 #include <iostream>
+#include <string>
 using namespace std;
 
-int main() {
-    //This function prints the input out in reverse
-    
-    //name will be the input
-    string name;
-    //newname will contain the reverse word later
-    string newname;
-    
-    //obtain the input
-    cout << "Enter word: ";
-    cin >> name;
-    
-    //lenname is the length of the input
-    int lenname = int(name.length());
-    
-    //For loop that obtains each character of the string from the back
-    for(int i = lenname; i >= 0; i--){
-        newname  += name[i];
-    }
 
-    cout << "Backwards: " << newname << endl;
+int main() {
+    //This function prints out all prime numbers up to the integer
+    
+    //The input is integer is num
+    //The boolean tf sees whether the number is prime or not
+    int num;
+    bool tf = true;
+    
+    cout << "Enter integer: ";
+    cin >> num;
+    cout << "Primes up to the input integer: ";
+    
+    //The code iterates through each number below the input and
+    //sees if the number is prime or not
+    for(int i = 2; i <= num; i++) {
+        for(int j = 2; j <= i/2; j++) {
+            if (i % j == 0) {
+                tf = false;
+            }
+        }
+        
+        //if tf is true, then i is a prime number and gets printed out
+        if (tf){
+            cout << i << " ";
+        }
+        
+        tf = true;
+    
+    }
+    cout << "" << endl;
+    
     return 0;
 }
